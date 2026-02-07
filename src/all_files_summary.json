@@ -1,0 +1,18 @@
+{
+  "backend/main.mo": "Empty Motoko actor with no backend logic.",
+  "feature_evidence.json": "Feature evidence file listing implemented features, linked source files, components, tests, and confidence levels.",
+  "frontend-file-summaries.txt": "Prewritten summaries describing the purpose of each frontend file in the project.",
+  "frontend/index.css": "Tailwind base style overrides defining global OKLCH color tokens and dark-mode variants.",
+  "frontend/index.html": "Base HTML template mounting the React app and loading main.tsx.",
+  "frontend/src/App.tsx": "Switches between SplashPage and RoseDayPage based on user entry state.",
+  "frontend/src/components/FallingRoses.tsx": "Generates and animates falling rose emojis with timed cleanup.",
+  "frontend/src/hooks/useActor.ts": "Manages creation and caching of authenticated or anonymous backend actors using React Query.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Implements Internet Identity auth context, login handling, and persistence.",
+  "frontend/src/hooks/useQueries.ts": "Empty placeholder hook file for future query usage.",
+  "frontend/src/index.css": "Global styles, fonts, Rose Day theme, and animations for splash and greeting pages.",
+  "frontend/src/main.tsx": "Initializes React root and wraps the app with query and identity providers.",
+  "frontend/src/pages/RoseDayPage.tsx": "Main greeting page with animated roses, message card, and decorative layout.",
+  "frontend/src/pages/SplashPage.tsx": "Splash screen prompting entry via click or keyboard to trigger onEnter.",
+  "frontend/tailwind.config.js": "Tailwind configuration enabling dark mode, custom colors, fonts, animations, and container settings with several UI extensions.",
+  "project_state.json": "Tracks project state, features, and requirements for building a two-step Rose Day greeting web experience with animations."
+}

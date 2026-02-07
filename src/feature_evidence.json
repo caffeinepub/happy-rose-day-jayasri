@@ -1,0 +1,85 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-an-initial-full-screen-splash-page-that-displays-a-clear-english-prompt-e-g-tap-to-enter-and-on-any-click-tap-keyboard-activation-transitions-navigates-to-the-main-rose-day-greeting-page",
+      "featureTitle": "Create an initial full-screen splash page that displays a clear English prompt (e.g., \"Tap to enter\") and, on any click/tap/keyboard activation, transitions/navigates to the main Rose Day greeting page.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/SplashPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-the-main-rose-day-greeting-page-ui-to-match-the-provided-html-css-design-radial-pink-to-deep-maroon-gradient-background-centered-glassmorphism-card-heading-happy-rose-day-name-jayasri-a-row-of-3-floating-rose-emojis-the-provided-message-text-and-the-footer-signature-line",
+      "featureTitle": "Implement the main Rose Day greeting page UI to match the provided HTML/CSS design: radial pink-to-deep-maroon gradient background, centered glassmorphism card, heading \"Happy Rose Day 🌹\", name \"Jayasri\", a row of 3 floating rose emojis, the provided message text, and the footer signature line.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/index.css",
+        "frontend/src/pages/RoseDayPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-recreate-the-falling-rose-emoji-animation-in-react-periodically-spawn-rose-emoji-elements-at-random-horizontal-positions-at-the-top-of-the-viewport-animate-them-falling-to-below-the-viewport-while-rotating-and-remove-them-after-their-animation-completes-ensure-intervals-timeouts-are-cleaned-up-on-unmount-to-prevent-memory-leaks",
+      "featureTitle": "Recreate the falling rose emoji animation in React: periodically spawn rose emoji elements at random horizontal positions at the top of the viewport, animate them falling to below the viewport while rotating, and remove them after their animation completes; ensure intervals/timeouts are cleaned up on unmount to prevent memory leaks.",
+      "files": [
+        "frontend/src/components/FallingRoses.tsx",
+        "frontend/src/index.css",
+        "frontend/src/pages/RoseDayPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-a-coherent-romantic-warm-rose-day-visual-theme-consistently-across-splash-and-main-pages-typography-spacing-subtle-glow-highlights-using-tailwind-and-or-scoped-styles-do-not-use-a-blue-purple-primary-palette",
+      "featureTitle": "Apply a coherent romantic, warm \"Rose Day\" visual theme consistently across splash and main pages (typography, spacing, subtle glow/highlights) using Tailwind and/or scoped styles; do not use a blue/purple primary palette.",
+      "files": [
+        "frontend/src/index.css",
+        "frontend/src/pages/RoseDayPage.tsx",
+        "frontend/src/pages/SplashPage.tsx",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

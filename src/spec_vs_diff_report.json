@@ -1,0 +1,53 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-07T11:01:25.231Z",
+  "summary": "Most requested UI behavior is implemented (splash-to-main transition, main greeting card with floating roses, and falling-roses spawning). However, there are additions related to Internet Identity/react-query and a backend canister stub that were not requested, and the falling-rose timeouts are not cleaned up on unmount (potential memory leak).",
+  "missing_requirements": [
+    {
+      "id": "REQ-3",
+      "requirement": "Ensure all timers/timeouts used for the falling rose animation are cleaned up when leaving/unmounting the main page to prevent memory leaks.",
+      "reason": "The falling roses component creates a setInterval (cleaned up) and also creates a setTimeout per rose to remove it, but those timeouts are not tracked/cleared on unmount. This can trigger setState after unmount and violates the cleanup requirement.",
+      "evidence": [
+        "frontend/src/components/FallingRoses.tsx"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Introduced a backend canister stub (Motoko actor) despite the request stating the app should be fully client-side with no external backend/database required.",
+      "reason": "A new backend file was added even though no backend functionality was requested or needed for the greeting app.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "description": "Added/kept Internet Identity authentication scaffolding and actor/query plumbing (InternetIdentityProvider, useInternetIdentity, useActor, react-query) even though Internet Identity authentication is explicitly a non-goal.",
+      "reason": "The diff adds and wires an InternetIdentityProvider in the app entry and includes hooks that support authentication/actor creation, which is out of scope.",
+      "evidence": [
+        "frontend/src/main.tsx",
+        "frontend/src/hooks/useInternetIdentity.ts",
+        "frontend/src/hooks/useActor.ts"
+      ]
+    }
+  ],
+  "confidence": 0.72,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/components/FallingRoses.tsx",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/index.css",
+    "frontend/src/main.tsx",
+    "frontend/src/pages/RoseDayPage.tsx",
+    "frontend/src/pages/SplashPage.tsx",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}

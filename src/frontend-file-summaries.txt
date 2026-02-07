@@ -1,0 +1,9 @@
+{
+  "frontend/src/App.tsx": "Main app component that manages the splash-to-main page transition state and conditionally renders either SplashPage or RoseDayPage.",
+  "frontend/src/pages/SplashPage.tsx": "Full-screen splash page component with \"Tap to enter\" prompt that handles click, tap, and keyboard (Enter/Space) activation to trigger the onEnter callback.",
+  "frontend/src/pages/RoseDayPage.tsx": "Main Rose Day greeting page displaying the glassmorphism card with heading, name \"Jayasri\", floating rose emojis, message text, and footer signature, plus the FallingRoses animation component.",
+  "frontend/src/components/FallingRoses.tsx": "React component that spawns, animates, and removes falling rose emojis at random horizontal positions with randomized 4-7 second durations, with proper cleanup on unmount.",
+  "frontend/src/index.css": "Global styles with Google Fonts imports, OKLCH color tokens for warm rose/pink theme, and all animation keyframes (splash fade-in, floating roses, falling roses) plus responsive layout styles.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with Playfair Display and Poppins fonts, custom keyframes for rose animations, and warm rose-toned color palette.",
+  "frontend/src/hooks/useQueries.ts": "Empty placeholder file as this is a client-side only app with no backend queries needed."
+}

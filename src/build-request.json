@@ -1,0 +1,110 @@
+{
+  "kind": "build_request",
+  "title": "Rose Day greeting app with tap-to-enter splash screen and falling roses animation",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create an initial full-screen splash page that displays a clear English prompt (e.g., \"Tap to enter\") and, on any click/tap/keyboard activation, transitions/navigates to the main Rose Day greeting page.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1",
+          "msg-4"
+        ],
+        "quotes": [
+          "First give page like tap to see then take to the main page"
+        ]
+      },
+      "acceptanceCriteria": [
+        "App loads on the splash page by default.",
+        "Splash page shows an English \"Tap to enter\" style call-to-action.",
+        "User can enter via click/tap; optionally Enter/Space also works for accessibility.",
+        "After entering, the user sees the main greeting page.",
+        "No console errors from event handlers or navigation logic."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement the main Rose Day greeting page UI to match the provided HTML/CSS design: radial pink-to-deep-maroon gradient background, centered glassmorphism card, heading \"Happy Rose Day 🌹\", name \"Jayasri\", a row of 3 floating rose emojis, the provided message text, and the footer signature line.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1",
+          "msg-4"
+        ],
+        "quotes": [
+          "Happy Rose Day 🌹",
+          "Jayasri",
+          "Just a small rose, to brighten your day a little 🌸",
+          "– from someone who admires you"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Main page background uses a radial gradient similar to the provided colors (#ffc0cb to #7a0019).",
+        "A centered card is rendered with translucent background, blur (glass effect), rounded corners, padding, and a soft shadow.",
+        "Text content matches the provided wording and line breaks (English).",
+        "Three rose emojis are shown in a row and have a gentle floating animation.",
+        "Layout is responsive and remains centered on common mobile and desktop sizes."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Recreate the falling rose emoji animation in React: periodically spawn rose emoji elements at random horizontal positions at the top of the viewport, animate them falling to below the viewport while rotating, and remove them after their animation completes; ensure intervals/timeouts are cleaned up on unmount to prevent memory leaks.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1",
+          "msg-4"
+        ],
+        "quotes": [
+          "setInterval(createRose, 600);",
+          "rose.style.left = Math.random() * 100 + \"vw\";",
+          "rose.style.animationDuration = (Math.random() * 3 + 4) + \"s\";"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Falling rose emojis appear continuously while on the main greeting page.",
+        "Each falling rose has randomized x-position and randomized fall duration similar to the original (roughly 4–7 seconds).",
+        "Falling roses are removed from the DOM/state after completing (no unbounded growth).",
+        "All timers/intervals are cleaned up when leaving/unmounting the main page.",
+        "Animation runs smoothly without significant jank on typical devices."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Apply a coherent romantic, warm \"Rose Day\" visual theme consistently across splash and main pages (typography, spacing, subtle glow/highlights) using Tailwind and/or scoped styles; do not use a blue/purple primary palette.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Happy Rose Day Jayasri 🌹"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Splash and main pages share a consistent warm/pink/rose-toned theme.",
+        "Typography visually matches the intended feel (e.g., serif display for heading + clean sans for body) without relying on inline HTML <style> blocks.",
+        "No primary blue/purple theme elements are introduced.",
+        "UI looks intentional and consistent rather than default-styled."
+      ]
+    }
+  ],
+  "constraints": [
+    "Frontend must be implemented in React + TypeScript with Tailwind CSS and composed UI components (do not edit files under frontend/src/components/ui).",
+    "Do not modify immutable hook/entry files listed by the platform (frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx).",
+    "No external backend/database is required for this app; keep it fully client-side unless a backend dependency is explicitly introduced later.",
+    "Use English for any user-facing text."
+  ],
+  "nonGoals": [
+    "Internet Identity authentication.",
+    "Persisting any user data on-chain.",
+    "Admin panels, sharing features, or messaging features.",
+    "Adding third-party analytics or external API integrations."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

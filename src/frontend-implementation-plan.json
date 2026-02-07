@@ -1,0 +1,118 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Rose Day greeting app (splash + greeting + falling roses)",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Add a full-screen splash screen with an English “Tap to enter” call-to-action that transitions to the main greeting view via click/tap and accessible keyboard activation.",
+      "acceptanceCriteria": [
+        "App loads on the splash page by default.",
+        "Splash page shows an English \"Tap to enter\" style call-to-action.",
+        "User can enter via click/tap; optionally Enter/Space also works for accessibility.",
+        "After entering, the user sees the main greeting page.",
+        "No console errors from event handlers or navigation logic."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Create the app-level view switch (splash -> main) using React state so the splash screen is the initial default view without changing frontend/src/main.tsx; ensure activation works via click/tap and Enter/Space for accessibility."
+        },
+        {
+          "path": "frontend/src/pages/SplashPage.tsx",
+          "operation": "create",
+          "description": "Implement the full-screen SplashPage UI with a clear English “Tap to enter” prompt and accessible semantics (focusable container/button role, keyboard handling)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Implement the main Rose Day greeting page UI matching the provided design (radial gradient background, glassmorphism card, exact text, floating rose emoji row).",
+      "acceptanceCriteria": [
+        "Main page background uses a radial gradient similar to the provided colors (#ffc0cb to #7a0019).",
+        "A centered card is rendered with translucent background, blur (glass effect), rounded corners, padding, and a soft shadow.",
+        "Text content matches the provided wording and line breaks (English).",
+        "Three rose emojis are shown in a row and have a gentle floating animation.",
+        "Layout is responsive and remains centered on common mobile and desktop sizes."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/RoseDayPage.tsx",
+          "operation": "create",
+          "description": "Create the main greeting page with the radial pink-to-deep-maroon gradient background and a centered glassmorphism card containing: heading “Happy Rose Day 🌹”, name “Jayasri”, a row of 3 rose emojis, the message “Just a small rose, to brighten your day a little 🌸”, and footer “– from someone who admires you”; use Tailwind classes for layout and responsiveness."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Add Tailwind layers and scoped CSS utilities/classes for the gentle floating emoji animation (used by the 3-rose row) and any small global typography tweaks needed for the design (avoid inline <style> blocks)."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire RoseDayPage as the post-splash view so that after activation on SplashPage the user sees the main greeting page."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Implement a React falling rose emoji animation that spawns, animates, and removes roses with proper cleanup to prevent memory leaks.",
+      "acceptanceCriteria": [
+        "Falling rose emojis appear continuously while on the main greeting page.",
+        "Each falling rose has randomized x-position and randomized fall duration similar to the original (roughly 4–7 seconds).",
+        "Falling roses are removed from the DOM/state after completing (no unbounded growth).",
+        "All timers/intervals are cleaned up when leaving/unmounting the main page.",
+        "Animation runs smoothly without significant jank on typical devices."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/FallingRoses.tsx",
+          "operation": "create",
+          "description": "Create a FallingRoses React component that periodically spawns rose emoji elements at random horizontal positions and randomized 4–7s animation duration, animates them falling + rotating, and removes each rose after its animation completes; ensure all intervals/timeouts are cleaned up on unmount."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add keyframes/classes for the falling + rotating rose animation (e.g., fall from above viewport to below viewport while rotating), designed to accept per-element CSS variables/inline style values for duration/position while keeping the animation definition in CSS."
+        },
+        {
+          "path": "frontend/src/pages/RoseDayPage.tsx",
+          "operation": "modify",
+          "description": "Mount FallingRoses only on the main greeting page so the animation runs while viewing the greeting and automatically stops/cleans up when leaving the page."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Apply a consistent warm, romantic Rose Day theme across splash and main views using Tailwind and scoped styles (no blue/purple primary palette).",
+      "acceptanceCriteria": [
+        "Splash and main pages share a consistent warm/pink/rose-toned theme.",
+        "Typography visually matches the intended feel (e.g., serif display for heading + clean sans for body) without relying on inline HTML <style> blocks.",
+        "No primary blue/purple theme elements are introduced.",
+        "UI looks intentional and consistent rather than default-styled."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Define consistent warm/rose-toned base styling (background helpers, text glow/highlight utilities, and typography choices for heading vs body) using Tailwind @layer so both pages share the same theme without inline <style> blocks."
+        },
+        {
+          "path": "frontend/src/pages/SplashPage.tsx",
+          "operation": "modify",
+          "description": "Apply the shared warm/rose theme styling (gradient tones, subtle glow/highlights, consistent typography/spacing) to the splash page using Tailwind classes and the shared utilities from frontend/src/index.css."
+        },
+        {
+          "path": "frontend/src/pages/RoseDayPage.tsx",
+          "operation": "modify",
+          "description": "Ensure the main page uses the same warm/rose theme tokens/utility classes (typography, spacing, subtle glow accents) and avoids introducing blue/purple primary elements."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind theme configuration as needed for Rose Day-specific animations/utilities (e.g., named keyframes/animations for float/fall) while keeping the overall palette warm/rose-toned (no blue/purple as primary)."
+        }
+      ]
+    }
+  ]
+}

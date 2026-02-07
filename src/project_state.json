@@ -1,0 +1,62 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Build a simple \"Happy Rose Day Jayasri\" web page with an initial tap-to-enter splash screen that transitions to the main animated rose greeting page (radial gradient background, glassmorphism card, floating/falling roses).",
+  "architectural_notes": [
+    "Implement as a simple two-step experience: splash view -> main greeting view (either as two pages or a single page toggling visibility on tap)."
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-create-an-initial-full-screen-splash-page-that-displays-a-clear-english-prompt-e-g-tap-to-enter-and-on-any-click-tap-keyboard-activation-transitions-navigates-to-the-main-rose-day-greeting-page",
+      "title": "Create an initial full-screen splash page that displays a clear English prompt (e.g., \"Tap to enter\") and, on any click/tap/keyboard activation, transitions/navigates to the main Rose Day greeting page.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-main-rose-day-greeting-page-ui-to-match-the-provided-html-css-design-radial-pink-to-deep-maroon-gradient-background-centered-glassmorphism-card-heading-happy-rose-day-name-jayasri-a-row-of-3-floating-rose-emojis-the-provided-message-text-and-the-footer-signature-line",
+      "title": "Implement the main Rose Day greeting page UI to match the provided HTML/CSS design: radial pink-to-deep-maroon gradient background, centered glassmorphism card, heading \"Happy Rose Day 🌹\", name \"Jayasri\", a row of 3 floating rose emojis, the provided message text, and the footer signature line.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-recreate-the-falling-rose-emoji-animation-in-react-periodically-spawn-rose-emoji-elements-at-random-horizontal-positions-at-the-top-of-the-viewport-animate-them-falling-to-below-the-viewport-while-rotating-and-remove-them-after-their-animation-completes-ensure-intervals-timeouts-are-cleaned-up-on-unmount-to-prevent-memory-leaks",
+      "title": "Recreate the falling rose emoji animation in React: periodically spawn rose emoji elements at random horizontal positions at the top of the viewport, animate them falling to below the viewport while rotating, and remove them after their animation completes; ensure intervals/timeouts are cleaned up on unmount to prevent memory leaks.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-coherent-romantic-warm-rose-day-visual-theme-consistently-across-splash-and-main-pages-typography-spacing-subtle-glow-highlights-using-tailwind-and-or-scoped-styles-do-not-use-a-blue-purple-primary-palette",
+      "title": "Apply a coherent romantic, warm \"Rose Day\" visual theme consistently across splash and main pages (typography, spacing, subtle glow/highlights) using Tailwind and/or scoped styles; do not use a blue/purple primary palette.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Add an initial splash screen (\"Tap to enter\") that, on tap/click, navigates/transitions to the main Rose Day greeting/animation page.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Implement the main Rose Day greeting page UI and animations as provided (glassmorphism card, floating roses, and falling rose emoji animation).",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Happy Rose Day Jayasri",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}
